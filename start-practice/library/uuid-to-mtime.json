@@ -588,5 +588,10 @@
     "asset": 1592807258000,
     "meta": 1618440071162,
     "relativePath": "model/primitives.fbx"
+  },
+  "83d7fa65-0ddc-4acb-8490-7e0a7ce83cc2": {
+    "asset": 1618528693504,
+    "meta": 1618528749944,
+    "relativePath": "scriptsDrill"
   }
 }
