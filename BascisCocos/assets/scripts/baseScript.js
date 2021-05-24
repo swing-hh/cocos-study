@@ -21,6 +21,8 @@ cc.Class({
         if(data === "spriteButton"){
             this.mySprirw.spriteFrame = this.updateSprite.getSpriteFrame("a12")
             cc.log("spriteButton")
+        }else if(data === "change"){
+            cc.director.loadScene("piazaView");
         }else{
             this.mySprirw.spriteFrame = this.updateSprite.getSpriteFrame("a13")
             cc.log("colorButton")
