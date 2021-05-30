@@ -36,6 +36,10 @@ cc.Class({
         // this.test(a);
     },
     showPrefabFun() {
+        // console.log(this.alertPrefab.getComponent('alert'))
+        // let node = cc.instantiate(this.alertPrefab)
+        // console.log(node.getComponent("alert"))
+
         createAlert(this.node, "服务器位开启请等待", () => {
             cc.log('确定的回掉函数')
         }, () => {
