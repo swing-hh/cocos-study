@@ -36,15 +36,23 @@ cc.Class({
         // this.test(a);
     },
     showPrefabFun() {
-        let node = cc.instantiate(this.alertPrefab)
-        this.node.addChild(node);
-        node = node.getComponent("alert")
-        node.show("服务器位开启请等待", () => {
+        createAlert(this.node, "服务器位开启请等待", () => {
             cc.log('确定的回掉函数')
         }, () => {
             cc.log('取消的回掉函数')
-        });
-        console.log(111, node)
+        })
+        // cc.resources.load("alert", (err, prefab)=> {
+        //     let node = cc.instantiate(prefab)
+        //     this.node.addChild(node);
+        //     node = node.getComponent("alert")
+        //     node.show("服务器位开启请等待", () => {
+        //         cc.log('确定的回掉函数')
+        //     }, () => {
+        //         cc.log('取消的回掉函数')
+        //     });
+        //     console.log(111, node)
+        // })
+        
     }
 
     // test(a) {
