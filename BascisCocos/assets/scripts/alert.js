@@ -24,6 +24,12 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        label: {
+            type: cc.Label,
+            default: null
+        },
+        confirmFun1: null,
+        cancelFun: null
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -34,13 +40,45 @@ cc.Class({
 
     },
 
+    // 显示prefab
+    show(tip, confirmFun = function(){}, cancelFun = function() {}) {
+        this.clear()
+        this.node.active = true;
+        this.setTip(tip);
+        this.setConfirmFun(confirmFun)
+        this.setCancelFun(cancelFun)
+    },
+
+    clear() {
+        this.setTip('');
+        this.setConfirmFun(null)
+        this.setCancelFun(null)
+    },
+
     closeFun() {
         this.node.active = false;
+        if(this.cancelFun !== null) {
+            this.cancelFun()
+        }
     },
 
     confirmFun() {
-        this.closeFun()
-        cc.log('执行确定操作')
+        this.node.active = false;
+        if(this.confirmFun1 !== null) {
+            this.confirmFun1()
+        }
+    },
+
+    setTip(str) {
+        this.label.string = str
+    },
+
+    setConfirmFun(confirmFun) {
+        this.confirmFun1 = confirmFun
+    },
+
+    setCancelFun(cancelFun) {
+        this.cancelFun = cancelFun
     }
 
     // update (dt) {},
