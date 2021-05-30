@@ -6,6 +6,10 @@ cc.Class({
         // age: 18
         mySprirw: cc.Sprite,
         updateSprite: cc.SpriteAtlas,
+        alertPrefab: {
+            type: cc.Prefab,
+            default: null
+        }
     },
 
     // onLoad () {},
@@ -31,6 +35,11 @@ cc.Class({
         // var a = 100;
         // this.test(a);
     },
+    showPrefabFun() {
+        const node = cc.instantiate(this.alertPrefab)
+        this.node.addChild(node);
+        console.log(111, node)
+    }
 
     // test(a) {
     //     // console.log(a)
