@@ -35,6 +35,9 @@ cc.Class({
     onLoad () {
         this.loginNode = this.loginNode.getComponent(cc.Animation)
         this.loginNode.node.active = false
+        this.loginNode.hideFun = ()=> {
+            cc.log('hide结束事件触发')
+        }
         cc.log(this.loginNode)
     },
 
@@ -42,11 +45,14 @@ cc.Class({
 
     },
 
-    testFun() {
+    testShowFun() {
         this.loginNode.node.active = true
-        this.loginNode.play("login")
+        this.loginNode.play("loginShow")
         cc.log('test')
-    }
+    },
 
+    testHideFun() {
+        this.loginNode.play("loginHide")
+    }
     // update (dt) {},
 });
