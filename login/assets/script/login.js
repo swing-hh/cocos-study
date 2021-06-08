@@ -20,6 +20,10 @@ cc.Class({
         toggleStr: {
             type: cc.Toggle,
             default: false
+        },
+        animation: {
+            type: cc.Animation,
+            default: null
         }
         // foo: {
         //     // ATTRIBUTES:
@@ -44,14 +48,22 @@ cc.Class({
 
     start() {
         cc.log(this.bgNode)
+        this.node.active = false
+        this.animation.hideFun = ()=> {
+            this.node.active = false
+            cc.log('hide结束事件触发')
+        }
+        this.show()
     },
 
     hide() {
-        this.node.active = false
+        // this.node.active = false
+        this.animation.play("loginHide")
     },
 
     show() {
         this.node.active = true
+        this.animation.play("loginShow")
     },
 
     loginFun() {
